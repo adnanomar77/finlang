@@ -1,7 +1,8 @@
-# FinLang Core
+# FinLang
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22181786.svg)](https://doi.org/10.5281/zenodo.22181786)
 
 FinLang is a small statically checked financial-contract language prototype. The implementation now provides a complete text pipeline:
-
 > source `.fin` → lexer → parser → AST → type checker → typed AST → atomic runtime
 
 ## Grammar
