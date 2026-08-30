@@ -2,6 +2,9 @@
 name = "finlang-core"
 version = "0.1.0"
 edition = "2021"
+description = "A deterministic financial programming language with a typed compiler, verified bytecode VM, financial execution semantics, policies, and zero-knowledge proof support."
+license = "MIT"
+repository = "https://github.com/adnanomar77/finlang"
 
 [dependencies]
 curve25519-dalek = { version = "4.1.3", features = ["digest", "rand_core"] }
