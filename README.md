@@ -52,3 +52,11 @@ cargo clippy --all-targets --all-features -- -D warnings
 ```
 
 Formal proofs, fuzzing engines, a bytecode VM, cryptographic commitments, persistent storage, and production security audits are not implied by this prototype and require additional dedicated implementation and review.
+
+## Documentation
+
+- [Language Reference](docs/language.md) — Complete FinLang language reference.
+- [Getting Started](docs/getting-started.md) — Installation and first-use guide.
+- [Formal Semantics](FORMAL_SEMANTICS.md) — Execution model and safety obligations.
+- [Threat Model](THREAT_MODEL.md) — Security assumptions and threat considerations.
+- [Security](SECURITY.md) — Security reporting information.
