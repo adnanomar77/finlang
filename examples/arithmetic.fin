@@ -1,0 +1,2 @@
+// Deterministic arithmetic and conditional example.
+if (2 + 3 * 4) >= 14 then 100 / 4 else 0

@@ -1,0 +1,8 @@
+// Minimal text program demonstrating the verified oracle flow.
+let price = toAmount(
+    validate(
+        oracleRead(feedA),
+        PriceBounds
+    )
+) in
+mint(alice, price)

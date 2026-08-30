@@ -1,0 +1,6 @@
+/target
+*.txt
+*.log
+*.vo
+*.glob
+.DS_Store

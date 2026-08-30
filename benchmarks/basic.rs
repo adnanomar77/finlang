@@ -1,0 +1,3 @@
+use std::time::Instant;
+use finlang_core::{bytecode::{compile,Vm},compiler::compile_source,state::FinancialState};
+fn main(){let source="2 + 3 * 4";let start=Instant::now();let mut compiled=0u64;for _ in 0..10000{let c=compile_source(source).unwrap();let _=compile(&c.typed_ast);compiled+=1;}let compile_ns=start.elapsed().as_nanos();let c=compile_source(source).unwrap();let code=compile(&c.typed_ast);let start=Instant::now();for _ in 0..10000{let mut vm=Vm::new();let mut s=FinancialState::new();vm.execute(&code,&mut s).unwrap();}let vm_ns=start.elapsed().as_nanos();println!("programs={} compile_total_ns={} vm_total_ns={} compile_avg_ns={} vm_avg_ns={}",compiled,compile_ns,vm_ns,compile_ns/(compiled as u128),vm_ns/(compiled as u128));}
