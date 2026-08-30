@@ -249,7 +249,7 @@ pub fn verify(code: &Bytecode) -> Result<(), VerifyError> {
             OpCode::Store(_) | OpCode::Pop => -1,
             OpCode::Validate(_)
             | OpCode::ToAmount
-            | OpCode::UnsafeAssumeTrusted
+            | OpCode::UnsafeAssumeTrusted => 0,
             | OpCode::Binary(_) => -1,
             OpCode::Select { .. } | OpCode::Trap(_) => 0,
             OpCode::Function { .. } => 1,
