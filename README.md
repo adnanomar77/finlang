@@ -190,7 +190,7 @@ finlang format examples/loan.fin
 
 Run the program’s test workflow:
 
-finlang test examples/loan.fin
+finlang test
 
 The CLI also supports explicit oracle inputs:
 
