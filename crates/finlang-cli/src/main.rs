@@ -64,6 +64,16 @@ fn main() {
     let mut args = env::args().skip(1);
     let command = args.next().unwrap_or_default();
 
+    if command == "--version" || command == "-V" {
+        println!("finlang {}", env!("CARGO_PKG_VERSION"));
+        return;
+    }
+
+    if command == "--help" || command == "-h" {
+        usage();
+        return;
+    }
+
     if command == "test" {
         let status = process::Command::new("cargo")
             .arg("test")
@@ -73,6 +83,7 @@ fn main() {
         process::exit(status.code().unwrap_or(1));
     }
 
+    // باقي الكود كما هو
     let path = match args.next() {
         Some(p) => p,
         None => {
