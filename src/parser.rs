@@ -303,10 +303,12 @@ impl<'a> Parser<'a> {
         Ok(f(a, b, x))
     }
     fn source(&mut self) -> Result<SourceId, String> {
-        match self.ident("Expected feed")?.as_str() {
+        let name = self.ident("Expected feed")?;
+
+        match name.as_str() {
             "feedA" => Ok(SourceId::FeedA),
             "feedB" => Ok(SourceId::FeedB),
-            _ => Err(self.err("Expected feedA or feedB")),
+            _ => Ok(SourceId::Named(name)),
         }
     }
     fn policy(&mut self) -> Result<PolicyId, String> {

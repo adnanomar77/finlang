@@ -7,6 +7,7 @@ pub enum Currency {
 pub enum SourceId {
     FeedA,
     FeedB,
+    Named(String),
 }
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum PolicyId {

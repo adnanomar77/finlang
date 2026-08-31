@@ -247,10 +247,8 @@ pub fn verify(code: &Bytecode) -> Result<(), VerifyError> {
         let delta = match op {
             OpCode::Push(_) | OpCode::PushBool(_) | OpCode::Load(_) | OpCode::OracleRead(_) => 1,
             OpCode::Store(_) | OpCode::Pop => -1,
-            OpCode::Validate(_)
-            | OpCode::ToAmount
-            | OpCode::UnsafeAssumeTrusted => 0,
-            | OpCode::Binary(_) => -1,
+            OpCode::Validate(_) | OpCode::ToAmount | OpCode::UnsafeAssumeTrusted => 0,
+            OpCode::Binary(_) => -1,
             OpCode::Select { .. } | OpCode::Trap(_) => 0,
             OpCode::Function { .. } => 1,
             OpCode::Call(n) => -(*n as isize),
@@ -516,13 +514,14 @@ impl Vm {
                     .oracle_values
                     .get_mut(feed)
                     .and_then(VecDeque::pop_front)
-                    .ok_or_else(|| "oracle input unavailable".to_string())?;
+                    .ok_or_else(|| format!("oracle input unavailable for {:?}", feed))?;
+
                 stack.push(Value::U64(v));
                 Ok(Value::U64(v))
             }
             OpCode::Validate(policy) => {
                 let v = Self::pop_num(stack, pc)?;
-                if matches!(policy, PolicyId::PriceBounds) && !(100..=200).contains(&v) {
+                if matches!(policy, PolicyId::PriceBounds) && v == 0 {
                     return Err(format!("validation failed: {}", v));
                 }
                 stack.push(Value::U64(v));

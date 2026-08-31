@@ -1,9 +1,9 @@
-# FinLang
+﻿# FinLang
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22181786.svg)](https://doi.org/10.5281/zenodo.22181786)
 
 FinLang is a small statically checked financial-contract language prototype. The implementation now provides a complete text pipeline:
-> source `.fin` → lexer → parser → AST → type checker → typed AST → atomic runtime
+> source `.fin` -> lexer -> parser -> AST -> type checker -> typed AST -> atomic runtime
 
 ## Grammar
 
@@ -56,8 +56,9 @@ Formal proofs, fuzzing engines, a bytecode VM, cryptographic commitments, persis
 
 ## Documentation
 
-- [Language Reference](docs/language.md) — Complete FinLang language reference.
-- [Getting Started](docs/getting-started.md) — Installation and first-use guide.
-- [Formal Semantics](FORMAL_SEMANTICS.md) — Execution model and safety obligations.
-- [Threat Model](THREAT_MODEL.md) — Security assumptions and threat considerations.
-- [Security](SECURITY.md) — Security reporting information.
+- [Language Reference](docs/language.md) â€” Complete FinLang language reference.
+- [Getting Started](docs/getting-started.md) â€” Installation and first-use guide.
+- [Formal Semantics](FORMAL_SEMANTICS.md) â€” Execution model and safety obligations.
+- [Threat Model](THREAT_MODEL.md) â€” Security assumptions and threat considerations.
+- [Security](SECURITY.md) â€” Security reporting information.
+

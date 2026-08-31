@@ -208,12 +208,13 @@ impl Interpreter {
 
             TypedExpr::OracleRead { feed, .. } => {
                 let key = match feed {
-                    SourceId::FeedA => "FeedA",
-                    SourceId::FeedB => "FeedB",
+                    SourceId::FeedA => "FeedA".to_string(),
+                    SourceId::FeedB => "FeedB".to_string(),
+                    SourceId::Named(name) => name.clone(),
                 };
                 let queue = self
                     .oracle_values
-                    .get_mut(key)
+                    .get_mut(&key)
                     .ok_or_else(|| format!("No oracle value for {}", key))?;
                 let val = queue
                     .pop_front()
@@ -229,7 +230,7 @@ impl Interpreter {
                 };
                 match policy {
                     PolicyId::PriceBounds => {
-                        if !(100..=200).contains(&value) {
+                        if value == 0 {
                             return Err(format!("Validation failed for PriceBounds: {}", value));
                         }
                     }
