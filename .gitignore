@@ -4,3 +4,6 @@
 *.vo
 *.glob
 .DS_Store
+
+/target/
+/crates/*/target/

@@ -1,3 +1,9 @@
+[workspace]
+members = [
+    ".",
+    "crates/finlang-cli",
+]
+
 [package]
 name = "finlang-core"
 version = "0.1.1"
